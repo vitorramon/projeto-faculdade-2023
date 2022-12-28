@@ -12,8 +12,14 @@ export const Nav = styled.nav`
     border-radius: 5px;
     min-width: 700px;
 
+    div {
+        align-items: center;
+        display: flex;
+    }
+
     div img {
         width: 150px;
+        margin-right: 15px;
     }
 
     span {

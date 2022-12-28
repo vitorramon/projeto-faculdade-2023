@@ -1,7 +1,11 @@
+import Header from '../../components/header/index'
+
 const Main = () => {
-    return (
-        <h1>Página Principal</h1>
-        )
+    return (<>
+
+       <Header/>
+
+    </>)
     }
 
 export default Main 
