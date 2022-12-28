@@ -10,7 +10,7 @@ import Header from './components/header/index'
 const Router = () => {
     return (
     <>
-        <Header></Header>
+        {/* <Header></Header> */}
         <Routes>
             <Route path="/" element = {<Main />}/>
             <Route path="/about" element = {<About />}/>
