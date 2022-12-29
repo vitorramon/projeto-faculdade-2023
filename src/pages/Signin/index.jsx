@@ -1,9 +1,30 @@
 import { Content, SigninContainer } from './styles';
+import { useAuth } from '../../context/Auth/index'
 import logo from '../../assets/logo.png';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react';
 
 
 const Signin = () => {
+
+    const {signIn} = useAuth();
+    const navigate = useNavigate();
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
+
+    const acessarHandle = (evt) => {
+        evt.preventDefault();
+
+        try{
+            signIn({user, password})
+            navigate('/');
+        } catch (error){
+            console.log('Erro de Login');
+            setUser('');
+            setPassword('');
+        }
+    }
+
     return (<>
         <SigninContainer>
             <Content>
@@ -11,9 +32,10 @@ const Signin = () => {
                 <div>
                     <h1>Acessar Site</h1>
                     <form>
-                        <input placeholder='Usuário' />
-                        <input placeholder='Senha' type='password'/>
-                        <button> Acessar </button>
+                        <input value={user} onChange = {(evt) => setUser(evt.target.value)} placeholder='Usuário' />
+                        <input value={password} onChange = {(evt) => setPassword(evt.target.value)} placeholder='Senha' type='password'/>
+                        <button onClick={acessarHandle}> Acessar </button>
+                        
                     </form>
                 </div>
                 <Link to='/signup'> Cadastrar-se </Link>
