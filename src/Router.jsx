@@ -1,20 +1,21 @@
 import { Routes, Route } from "react-router-dom"; // ctrl + space: aparece as opções
 import RequireAuth from "./components/RequireAuth/index";
 
+import Layout from './components/Layout/index'
 import Main from './pages/Main/index';
 import About from './pages/About/index';
 import Singin from './pages/Signin/index';
 import Signup from './pages/Signup/index';
 
-import Header from './components/header/index'
-
 const Router = () => {
     return (
     <>
-        {/* <Header></Header> */}
         <Routes>
-            <Route path="/" element = {<Main />}/>
-            <Route path="/about" element = {<RequireAuth element={<About />} />}/>
+            <Route path="/" element = {<Layout />}>
+                <Route index element = {<Main />}/>
+                <Route path="about" element = {<RequireAuth element={<About />} />}/>
+            </Route>
+
             <Route path="/signin" element = {<Singin />}/>
             <Route path="/signup" element = {<Signup />}/>
         </Routes>

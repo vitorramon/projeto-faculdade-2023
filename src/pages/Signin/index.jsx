@@ -1,7 +1,7 @@
 import { Content, SigninContainer } from './styles';
 import { useAuth } from '../../context/Auth/index'
 import logo from '../../assets/logo.png';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react';
 
 
@@ -9,15 +9,19 @@ const Signin = () => {
 
     const {signIn} = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+
+
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
+    const from = location.state?.from?.pathname || "/"
 
-    const acessarHandle = (evt) => {
+    const HandleSubmit = (evt) => {
         evt.preventDefault();
 
         try{
             signIn({user, password})
-            navigate('/');
+            navigate(from, {replace: true});
         } catch (error){
             console.log('Erro de Login');
             setUser('');
@@ -34,7 +38,7 @@ const Signin = () => {
                     <form>
                         <input value={user} onChange = {(evt) => setUser(evt.target.value)} placeholder='Usuário' />
                         <input value={password} onChange = {(evt) => setPassword(evt.target.value)} placeholder='Senha' type='password'/>
-                        <button onClick={acessarHandle}> Acessar </button>
+                        <button onClick={HandleSubmit}> Acessar </button>
                         
                     </form>
                 </div>
