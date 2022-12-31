@@ -1,12 +1,12 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased; /* Tira o serrilhado da fonte */
-}
+    -webkit-font-smoothing: antialiased; /* Tira o serrilhado da fonte 
+} */
 
-html, body {
+ html, body {
     width: 100%;
     height: 100vh;
     font-family: "Roboto", sans-serif;
-}
+} 
