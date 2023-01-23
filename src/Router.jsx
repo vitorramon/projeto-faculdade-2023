@@ -6,6 +6,8 @@ import Main from './pages/Main/index';
 import About from './pages/About/index';
 import Singin from './pages/Signin/index';
 import Signup from './pages/Signup/index';
+import FormClient from "./pages/FormClient/index";
+
 
 const Router = () => {
     return (
@@ -14,10 +16,12 @@ const Router = () => {
             <Route path="/" element = {<Layout />}>
                 <Route index element = {<Main />}/>
                 <Route path="about" element = {<RequireAuth element={<About />} />}/>
+                <Route path="/formclient" element = {<RequireAuth element={<FormClient />} />}/>
             </Route>
 
             <Route path="/signin" element = {<Singin />}/>
             <Route path="/signup" element = {<Signup />}/>
+            
         </Routes>
     </>
     )

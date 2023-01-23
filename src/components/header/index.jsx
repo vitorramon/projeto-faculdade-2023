@@ -26,6 +26,7 @@ const Header = () => {
                     >
                     <Nav.Link as={Link} to="/">Início</Nav.Link>
                     <Nav.Link as={Link} to ='/about'>Sobre</Nav.Link>
+                    <Nav.Link as={Link} to ='/formclient'>Cadastro de Clientes</Nav.Link>
                     </Nav>
                     <Nav>
                         {user?.id ? (
